@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charSet="utf-8" />
+        <!-- Canonical -->
+        <link rel="canonical" href="https://laggy">
+        <!-- Robots -->
+        <meta name="robots" content="noindex, nofollow">
+        <!-- Device -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5">
+        <meta name="format-detection" content="telephone=no">
+        <!-- <meta name="viwport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> -->
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <!-- Title -->
+        <title>
+            {{ title|capitalize|default('Bienvenue') }}
+            | Laggy
+                                
+                    
+        </title>
+        <!-- Description -->
+        <meta name="description" content="Laggy Agenda" />
+        <!-- Social -->
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="Laggy Agenda Project — Home">
+        <meta name="twitter:description" content="Home description.">
+        <meta name="twitter:image" content="#">
+        <!-- Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://laggy">
+        <meta property="og:title" content="Laggy Agenda Project — Home">
+        <meta property="og:description" content="Home description.">
+        <meta property="og:image" content="#">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <!-- Favicon -->
+        <meta name="theme-color" content="#fff">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@0;1&family=Tenor+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="src/forms.css" />
+        <script id="__bs_script__" src='../config/js/sync_gc7code.js'></script>
+    </head>
+    
+    <body>
+        
+        {% include 'parts/headerTestGc7.twig' %}
+    
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        
+    </body>
+</html>

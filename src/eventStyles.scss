@@ -1,0 +1,89 @@
+@import 'scss/reset';
+@import 'scss/base';
+
+
+nav {
+  width: 100vw;
+  height: 2vh;
+
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10;
+    li {
+      font-weight: 400;
+      font-size: 1.1rem;
+    }
+    h1 {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    li:not(:nth-child(2)) {
+      color: rgba(0, 0, 0, 0.4);
+    }
+    li:not(:nth-child(2)):hover {
+      color: #055858;
+      cursor: pointer;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+      input {
+        width: 290px;
+        height: 55px;     
+      }
+      input[type=text] {
+        border-radius: 8px 8px 0 0;
+        position: relative;
+      }
+      input[type=text]:before{
+        position: absolute;
+        content: 'toto';
+        height: 2px;
+        width: 30px;
+        background-color: black;
+      }
+      input[type=text] {
+        border-radius:0 0 8px 8px;
+      }
+      input[type=text] { 
+        border-radius: 8px 8px 0 0;
+      }
+      input[type=text] {
+        border-radius:0 0 8px 8px;
+      }
+      input[type=text] {
+        border-radius: 8px;
+      }
+      ::placeholder {
+        color: rgba(0, 0, 0, 0.4);
+        padding-left:12px;
+      
+      }
+  }
+
+fieldset {
+  background-color: rgba(7, 128, 128, 0.3);
+  border-radius: 8px ;
+  margin-top: 18%;
+  padding: 0;
+  border: none;
+
+}
+
+.line {
+  width: 93%;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: auto;
+}
+
+textarea {
+  min-height: 255px;
+  width: 290px ;
+  padding-top: 10px;
+}

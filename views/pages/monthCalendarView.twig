@@ -1,0 +1,32 @@
+{% extends 'layouts/mobile.twig' %}
+
+{% block content %}
+
+{% set startDow = time|date('F 1\\s\\t Y')|date('w') %}
+{% set daysInMonth = time|date('t') %}
+{% set daysInPreviousMonth = time|date_modify("-1 month")|date('t') %}
+
+{% set days = 'LMMJVSD'|split('') %}
+    
+{% set month = [] %}
+{% for i in (daysInPreviousMonth - startDow +2) .. daysInPreviousMonth  %}
+    {% set month = month|merge([i * -1]) %}
+{% endfor %}
+{% set month = month|merge(1 .. daysInMonth) %}
+{% set month = month|merge((1.. 42 -  (month|length))|map(v => "#{v * -1}") ) %}
+
+<main>
+    <div class="calendar">
+        <ul class="calendar--days">
+            {% for i in days %}
+                <li>{{i}}</li>
+            {% endfor %}
+        </ul>
+        <ul class="calendar--dates">
+            {% for i in month %}
+                <li class="{% if i<0 %}prev{% endif %} {% if i == data.quantieme %}active{% endif %}">{{i|abs}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,29 @@
+body {
+  main {
+    font-size: 30px;
+    background-color: rgb(124, 242, 255);
+    // color: #f33;
+    padding: 7px 5px;
+    border-radius: 7px;
+    // color: rgb(4, 255, 0);
+    // color: red;
+    
+  }
+}
+
+.modal {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.modal>div, .tof img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  font-weight: bold;
+  font-size: 32px;
+  border-radius: 7px;
+}

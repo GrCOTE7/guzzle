@@ -1,0 +1,46 @@
+{% extends 'layouts/test.twig' %}
+{% block content %}
+  {% set users = data.1 %}
+  <div class="relative rounded-xl overflow-auto">
+    <div class="shadow-sm overflow-hidden my-8">
+      <p id="mydesc" class="font-bold text-center c-red-800 text-xl bg-black">
+        Liste des utilisateurs
+      </p>
+      <table aria-describedby="mydesc" class="border-2 border-black table-auto w-full text-sm rounded-full">
+        <thead>
+          <tr class="text-white">
+            <th class="text-left pl-5">
+              Prénom
+            </th>
+            <th class="text-left">
+              Email
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in users %}
+            <tr>
+              <td class="pl-5">
+                {{ user.name }}
+              </td>
+              <td>
+                {{ user.email }}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="modal">
+    <div>
+      1
+    </div>
+    <div>
+      2
+    </div>
+    <div>
+      3
+    </div>
+  </div>
+{% endblock %}

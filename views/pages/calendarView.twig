@@ -1,0 +1,58 @@
+{% extends 'layouts/test.twig' %}
+
+{% block content %}
+
+  {% set calendar = data %}
+  {% set trans_day_hash = { 
+  "Monday": "Lundi", 
+  "Tuesday": "Mardi", 
+  "Wednesday": "Mercredi", 
+  "Thursday": "Jeudi", 
+  "Friday": "Vendredi", 
+  "Saturday": "Samedi", 
+  "Sunday": "Dimanche" 
+} %}
+
+  {% set trans_month_hash = { 
+  "January": "Janvier", 
+  "Tuesday": "Février", 
+  "Wednesday": "Mars", 
+  "Thursday": "Avril", 
+  "Friday": "Mai", 
+  "Saturday": "Juin", 
+  "Sunday": "Juillet", 
+  "Sunday": "Août",
+  "September": "Septembre",
+  "Sunday": "Octobre",
+  "Sunday": "Novembre", 
+  "Sunday": "Décembre" 
+} %}
+
+
+  <p>Les mois de l'année sont :</p>
+  {{ data|join(', ', ' et ') }}
+  
+  <hr/>
+  <br/>
+  <hr/>
+  <hr/>
+
+  {{ trans_day_hash["now"|date('l')] }}
+  {{ "now"|date("d/m/Y") }}
+  <br/>
+  <hr/>
+  1st day :
+    
+  {{ startDow }}
+  <br/>
+
+  1st day Littéral FR : 
+    
+  {{ trans_day_hash[startDow|date('l')] }}
+  <br/>
+  <hr/>
+  Nbr days : 
+    
+  {{ daysInMonth }}
+
+{% endblock %}

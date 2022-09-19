@@ -1,0 +1,84 @@
+{% extends 'layouts/test.twig' %}
+
+{% block content %}
+
+{% set calendar = data %}
+
+<main id="bus-availability-calendar">
+  <section class="th">
+      <span>Lu</span>
+      <span>Ma</span>
+      <span>Me</span>
+      <span>Je</span>
+      <span>Ve</span>
+      <span>Sa</span>
+      <span>Di</span>
+  </section>
+  <div class="week">
+    {% set daysInMonth = time|date('t') %}
+    {% set startDow = time|date('F 1\\s\\t Y')|date('w') %}
+    {% set dow = startDow %}
+    {% for day in range(1, daysInMonth) %}
+      {% if loop.first and startDow != 0 %}
+        {% for days in 1..startDow %}
+          <div class="day empty"></div>
+        {% endfor %}
+      {% endif %}
+      <div class="day has-entry">
+        <div>
+          <div class="day-label-wrapper"><span class="day-label" title="{{ time|date('F d, Y') }}">{{ day }}</span></div>
+          <div class="day-content-wrapper">
+            {% for key, events in events %}
+              {% if key  == day %}
+                <div class="event">
+                  {{ event }}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% if loop.last and dow != 6 %}
+        {% for days in dow..5 %}
+          <div class="day empty"></div>
+        {% endfor %}
+      {% endif %}
+      {% if dow == 6 %}
+        {% set dow = 0 %}
+        </div><!-- end week -->
+        <div class="week">
+      {% else %}
+        {% set dow = dow + 1 %}
+      {% endif %}
+    {% endfor %}        
+  </div>
+</main>
+
+
+<table>
+  <tr>
+    <td>
+      {{ data.days|join('</td><td>') |raw }}
+    </td>
+  </tr>
+
+  {% for quantieme in data.quantiemes %}
+  {{ quantieme|join(' ') }}
+  {% endfor %}
+  
+  
+  <?php for ($w = 1 - $week_day_first + 1; $w <= $days_count; $w = $w + 7) { ?>
+  <tr>
+      <?php $counter = 0; ?>
+      <?php for ($d = $w; $d <= $w + 6; ++$d) { ?>
+      <td
+          style="<?php if ($counter > 4) { ?>color: red;<?php } ?><?php if ($current_day == $d) { ?>border: 1px solid red; background-color:yellow; color:green;font-weight:bold; border-radius: 7px<?php } ?> text-align: center">
+          <?php echo $d > 0 ? ($d > $days_count ? '-' : $d) : '-'; ?>
+      </td>
+      <?php ++$counter; ?>
+      <?php } ?>
+  </tr>
+  <?php } ?>
+</table>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{{ title|capitalize|default('Bienvenue') }} | Agenda</title>
+        <meta name="description" content="Agenda" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+        <script id="__bs_script__" src='../config/js/sync_gc7code.js'></script>
+        <link rel="stylesheet" href="src/style.css">
+    </head>
+    <body class="antialiased text-lg bg-white">
+        
+        {% include 'parts/header.twig' %}
+        {% include 'parts/headerTestGc7.twig' %}
+        
+        {# <main class="flex flex-col items-center max-w-2xl w-full mx-auto"> #}
+        <main class="flex flex-col mx-5 my-5">
+            {% block content %}
+            {% endblock %}
+        </main>
+        
+        {% include 'parts/footer.twig' %}
+        
+    </body>
+</html>

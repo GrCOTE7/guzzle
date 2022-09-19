@@ -1,0 +1,14 @@
+{
+    "name": "grcote7/sitetest",
+    "require": {
+        "twig/twig": "^3.4",
+        "symfony/var-dumper": "^6.1",
+        "guzzlehttp/guzzle": "^7.5"
+    },
+    "authors": [
+        {
+            "name": "Lionel COTE",
+            "email": "grcote7@gmail.com"
+        }
+    ]
+}

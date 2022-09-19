@@ -1,0 +1,39 @@
+{% extends 'layouts/test.twig' %}
+{% block content %}
+  {% set animal = data %}
+  <div class="relative rounded-xl overflow-auto text-black-800 bg-blue-300">
+    <div class="shadow-sm overflow-hidden my-8">
+      <p id="mydesc" class="font-bold text-center text-blue-300 text-xl bg-black">
+{{ animal.name }}  <span class="text-right">({{ animal.id +1 }} / {{ animal.count }})</span>
+      </p>
+      <table aria-describedby="mydesc" class="border-2 border-black table-auto w-full text-sm rounded-full">
+        <thead>
+          <tr class="text-white">
+            <th class="px-5 text-justify" colspan={{ animal.gallery|length}}>
+              <p>{{ (animal.description |slice(0, 777)) |raw }}{{ animal.description|length > 777 ?'...':'' }}</p>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="pl-5 mb-10" colspan="4">
+              <img src="{{ animal.photo.src }}" alt="{{ animal.photo.alt }}" title="{{ animal.photo.title }}">
+            </td>
+            </tr>
+            <tr class="mb-15">
+              {% for k, tof in animal.gallery %}
+              <td  style="height:100px; padding:2px; margin-button: 10px">
+                <div class="modal">
+                  <div class="tof">
+                    <img src="{{ animal.gallery[k].src }}" alt="{{ animal.gallery[k].alt }}" title="{{ animal.gallery[k].title }}" width="100px">
+                  </div>
+                </div>
+              </td>
+              {% endfor %}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  {% endblock %}
+  

@@ -1,0 +1,65 @@
+
+{% extends 'layouts/compte.twig' %}
+
+
+{% block content %}
+
+ {{ data.message }}<br>  {{ user.name }}<br> <hr>
+
+{# {% for user in data.users %}
+{{ user.name }}<br>
+{% endfor%} #}
+
+<header>
+    <h1>Lagg<span>y</span></h1>
+</header>
+<div class="box">
+    <div class="containercnx">
+        <h2>Se connecter</h2>
+         <form method= "post" action = "/compte">
+            <div class="pseudo">
+                <label for="username">Pseudo</label>
+                <input type="text" id="username" name="username" value='sophie' />
+            </div>
+            <div class="motdepasse">
+                <label for="password">Mot de passe</label>
+            </div>
+            <input type="password" id="password" name="password" value='123' />
+            <div class="boutton">
+                <input type="submit" value="Se connecter" id="connexion" name= "action">
+            </div>
+            <p>Pas de compte ?
+                <a class="link" href="inscription">S'inscrire
+                </a>
+            </p>
+        </form>
+    </div>
+
+    <div class="continscr">
+        <h2>S'inscrire</h2>
+        <form method= "post" action = "/compte">
+            <div class="pseudo">
+                <label for="username">Pseudo</label>
+                <input type="text" id="username2" name="username2" value="sophie"/>
+            </div>
+            <div class="email">
+                <label for="password">Adresse email</label>
+                <input type="email" id="email" name="email" value="sophie@123.com"/>
+            </div>
+            <div class="motdepasse">
+                <label for="pass">Mot de passe</label>
+                <input type="password" id="pass" name="pass" value='123'/>
+            </div>
+            <div class="motdepasse">
+                <label for="pass">Confirmer le mot de passe</label>
+                <input type="password" id="pass2" name="pass2" value='123'/>
+            </div>
+            <div class="boutton">
+                <input type="submit" value="S'enregistrer" id="register" name="action">
+
+            </div>
+ 
+        </form>
+    </div>
+</div>
+{% endblock %}

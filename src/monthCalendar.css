@@ -1,0 +1,278 @@
+@charset "UTF-8";
+/*─────────────────────────────────────────────────────────────────────────────────────────────────*/
+/*─────────────────────────────────────────────────────────────────────────────────────────────────*/
+/*─
+/*─                                                                                      RESET
+/*─
+/*─────────────────────────────────────────────────────────────────────────────────────────────────*/
+/*─────────────────────────────────────────────────────────────────────────────────────────────────*/
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: none; /*─ Debug font size on iphone when landscape orientation ─*/
+  -webkit-font-smoothing: subpixel-antialiased; /*─ Debug safari font weight when fixed element on the page ─*/
+  -webkit-font-smoothing: antialiased; /*─ idem : Debug safari font weight when fixed element on the page ─*/
+}
+
+html, body, nav, header, footer, div, span,
+h1, h2, h3, p,
+a, img,
+ul, li,
+table, form, label, input, textarea, select, button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+input, textarea, select, button {
+  display: block;
+  box-sizing: border-box;
+  border-radius: 0;
+  outline: none;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+input[type=submit]:hover,
+button:hover {
+  cursor: pointer;
+}
+
+input::-ms-clear {
+  display: none; /*─ IE11 → remove cross to close ─*/
+}
+
+textarea {
+  overflow: auto; /*─ Hide scroll bar on IE ─*/
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, video, svg, picture {
+  display: block;
+}
+
+img, video {
+  width: 100%;
+  height: auto;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-size: 16px;
+  background: #F8F5F2;
+  font-family: "Poppins", sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Poppins", sans-serif;
+}
+
+hr {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 0 10px 0 10px;
+  height: 100vh;
+}
+
+nav {
+  height: 10vh;
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+nav h1 {
+  font-size: 4vh;
+}
+nav h1 span {
+  color: rgb(7, 128, 128);
+}
+nav ul {
+  display: flex;
+  flex-grow: 1;
+  justify-content: end;
+  gap: 5vw;
+}
+
+.action-bar {
+  height: 10vh;
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+.action-bar .container-switch {
+  background-color: rgba(7, 128, 128, 0.2);
+  width: 75%;
+  height: 60%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+.action-bar .container-switch ul {
+  display: flex;
+  justify-content: space-evenly;
+  flex-grow: 1;
+}
+.action-bar .container-switch ul button {
+  border-radius: 8px;
+  font-size: 1.5rem;
+  vertical-align: middle;
+  padding: 1vw 8vw;
+}
+.action-bar .container-switch ul li button.active {
+  color: rgb(7, 128, 128);
+  font-weight: bold;
+  background-color: #f8f5f2;
+}
+.action-bar .container-switch ul li:hover {
+  background-color: #f8f5f2;
+  border-radius: 8px;
+  color: rgb(7, 128, 128);
+}
+.action-bar .container-button {
+  background-color: rgba(7, 128, 128, 0.2);
+  border-radius: 8px;
+  width: 20%;
+  height: 60%;
+  margin-left: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-bar {
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.date-bar h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.date-bar ul {
+  display: flex;
+  gap: 2vw;
+}
+.date-bar ul button {
+  font-size: 2em;
+  padding: 0 4vw;
+}
+.date-bar ul li {
+  border: solid 1px grey;
+  color: rgb(138, 138, 138);
+  border-radius: 8px;
+}
+.date-bar ul li .active {
+  font-weight: bold;
+  color: #fff;
+  background-color: rgb(7, 128, 128);
+}
+.date-bar ul li:hover {
+  background-color: rgb(7, 128, 128);
+  border-radius: 8px;
+  color: #f8f5f2;
+  border: none;
+}
+
+.calendar {
+  width: 100%;
+  height: 45vh;
+  margin-bottom: 15%;
+}
+.calendar--days {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+}
+.calendar--days li {
+  font-size: 1.8rem;
+  flex: 1;
+  font-weight: 400;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+.calendar--dates {
+  display: grid;
+  gap: 3px;
+  grid-template-columns: repeat(7, 1fr);
+  justify-items: center;
+  text-align: center;
+}
+.calendar--dates li {
+  height: 4rem;
+  width: 3rem;
+  font-size: 1.5rem;
+  display: grid;
+  place-items: center;
+  font-weight: 300;
+  position: relative;
+}
+.calendar--dates li.prev,
+.calendar--dates li.next {
+  color: #ccc;
+}
+.calendar--dates li.active {
+  font-weight: bold;
+  background: rgb(7, 128, 128);
+  color: #f8f5f2;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.event-card {
+  background-color: rgba(244, 93, 72, 0.2);
+  height: 15vh;
+  border-radius: 8px;
+  padding: 20px;
+  font-size: 1.5rem;
+  color: rgb(244, 93, 72);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.event-card .hour {
+  font-weight: 200;
+}
+.event-card .description {
+  font-weight: 400;
+}/*# sourceMappingURL=monthCalendar.css.map */
